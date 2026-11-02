@@ -94,7 +94,13 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    	}
 	    
 	    public static double avgSpeed(TripPoint a, TripPoint b) {
-	    	
+	    
+	    	    double distance = haversineDistance(a, b);
+
+	    	    double time = Math.abs(a.getTime() - b.getTime()) / 60.0;
+
+	    	    return distance / time;
+	    	}
 	    }
 	    
-}
+
