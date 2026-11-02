@@ -33,7 +33,7 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    public int size() {
 	        return trip.size();
 	    }
-
+//@return returns copy of trip
 	    public static ArrayList<TripPoint> getTrip() {
 	        return new ArrayList<TripPoint>(trip);
 	    }
