@@ -78,8 +78,15 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    	return distance;
 	    }
 	    public static double totalDistance() {
-	    	
-	    }
+	    	    double distance = 0.0;
+
+	    	    for (int i = 0; i < trip.size() - 1; i++) {
+	    	        distance += haversineDistance(trip.get(i), trip.get(i + 1));
+	    	    }
+
+	    	    return distance;
+	    	}
+	    
 	    public static double avgSpeed(TripPoint a, TripPoint b) {
 	    	
 	    }
