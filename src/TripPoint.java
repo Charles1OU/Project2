@@ -37,6 +37,7 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    public static ArrayList<TripPoint> getTrip() {
 	        return new ArrayList<TripPoint>(trip);
 	    }
+	    // reads file into trip Array
 	    public static void readFile(String filename) throws IOException {
 	     trip.clear();
 	    	BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -92,7 +93,7 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 
 	    	    return distance;
 	    	}
-	    
+	    //@return returns avgSpeed of two points
 	    public static double avgSpeed(TripPoint a, TripPoint b) {
 	    
 	    	    double distance = haversineDistance(a, b);
