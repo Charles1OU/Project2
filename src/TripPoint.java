@@ -34,11 +34,12 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	        return trip.size();
 	    }
 
-	    public ArrayList<TripPoint> getTrip() {
+	    public static ArrayList<TripPoint> getTrip() {
 	        return new ArrayList<TripPoint>(trip);
 	    }
 	    public static void readFile(String filename) throws IOException {
-	        BufferedReader br = new BufferedReader(new FileReader(filename));
+	     trip.clear();
+	    	BufferedReader br = new BufferedReader(new FileReader(filename));
 
 	        String reader = br.readLine();
 
@@ -67,12 +68,15 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    }
 	    //@return distance from point A to point B
 	    public static double haversineDistance(TripPoint a, TripPoint b) {
-	    	double phi = b.getLat() - a.getLat();
-	    	double lamba = b.getLon() - a.getLon();
-	    	double angle = (1 - Math.cos(phi) + Math.cos(a.getLat()) * Math.cos(b.getLat())
-	    	        * (1 - Math.cos(lamba))) / 2;
-	    	double radians = angle * (Math.PI/180);
-	    	double distance = 6371.2 * radians;
+	    	double lat1 = Math.toRadians(a.getLat());
+	    	double lat2 = Math.toRadians(b.getLat());
+	    	double lon1 = Math.toRadians(a.getLon());
+	    	double lon2 = Math.toRadians(b.getLon());
+	     	double phi = lat2 - lat1;
+	    	double lamba = lon2 - lon1;
+	    	double angle = Math.asin(Math.sqrt((1 - Math.cos(phi) + Math.cos(lat1) * Math.cos(lat2)
+	    	        * (1 - Math.cos(lamba))) / 2));
+	    	double distance = 2 * 6371 * angle;
 	    	
 	    	
 	    	return distance;
@@ -92,4 +96,5 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    public static double avgSpeed(TripPoint a, TripPoint b) {
 	    	
 	    }
+	    
 }
