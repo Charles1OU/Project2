@@ -77,6 +77,8 @@ private	static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();;
 	    	
 	    	return distance;
 	    }
+	    
+	    //@return total haversineDistance of every point in the array
 	    public static double totalDistance() {
 	    	    double distance = 0.0;
 
